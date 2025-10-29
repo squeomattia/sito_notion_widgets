@@ -33,12 +33,11 @@
 
     .social {
       background-color: #eae9e9;
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      position: relative;
     }
 
     .icon {
@@ -70,7 +69,7 @@
       background-color: #26a7de;
     }
 
-    .reddit:hover {
+    .whatsapp:hover {
       background-color: #ff4500;
     }
 
@@ -92,7 +91,7 @@
 
     .social {
       position: relative;
-      margin: 5px;
+      margin: 10px;
       cursor: pointer;
     }
 
@@ -114,6 +113,18 @@
         <span class="icon email"><i class="fa-solid fa-envelope"></i></span>
       </div>
       <!-- End email Icon -->
+
+      <!-- Start whatsapp Icon -->
+      <div id="whatsapp" onclick="navigate(this.id)" class="social whatsapp">
+        <span class="icon whatsapp"><i class="fab fa-whatsapp"></i></span>
+      </div>
+      <!-- End whatsapp Icon -->
+      
+      <!-- Start telegram Icon -->
+      <div id="telegram" onclick="navigate(this.id)" class="social telegram">
+        <span class="icon telegram"><i class="fab fa-telegram"></i></span>
+      </div>
+      <!-- End telegram Icon -->
 
       <!-- Start facebook Icon -->
       <div id="facebook" onclick="navigate(this.id)" class="social facebook">
@@ -146,12 +157,6 @@
       </div>
       <!-- End youtube Icon -->
 
-      <!-- Start telegram Icon -->
-      <div id="telegram" onclick="navigate(this.id)" class="social telegram">
-        <span class="icon telegram"><i class="fab fa-telegram"></i></span>
-      </div>
-      <!-- End telegram Icon -->
-
     </div>
 
 
@@ -181,7 +186,7 @@
         else if (id === "twitter") {
           window.open("https://twitter.com/", '_blank').focus(); //Add the url to your pinterest account
         }
-        else if (id === "reddit") {
+        else if (id === "whatsapp") {
           window.open("https://www.reddit.com/", '_blank').focus(); //Add the url to your reddit account
         }
         else if (id === "tiktok") {
