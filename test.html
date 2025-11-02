@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spoiler Studio – Produzione, Mix & Mastering</title>
+  <meta name="description" content="Produzione musicale, mix e mastering professionale. Prenota una consulenza gratuita e porta i tuoi brani a livello release." />
+  <meta property="og:title" content="Spoiler Studio – Produzione, Mix & Mastering" />
+  <meta property="og:description" content="Produzione musicale, mix e mastering professionale. Prenota una consulenza gratuita." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      /* palette */
+      --bg:#0b0b10;          /* background */
+      --card:#12121a;        /* card surface */
+      --ink:#eaeaf2;         /* text */
+      --muted:#b7b7c7;       /* secondary text */
+      --brand:#7c5cff;       /* accent */
+      --brand-2:#3dd6ed;     /* secondary accent */
+      --ring: 0 0 0 3px #7c5cff55;
+      /* sizing */
+      --maxw:1100px;
+      /* fluid type scale */
+      --step-0: clamp(0.95rem, 0.31vw + 0.84rem, 1.05rem);
+      --step-1: clamp(1.20rem, 0.60vw + 1.00rem, 1.40rem);
+      --step-2: clamp(1.50rem, 0.90vw + 1.20rem, 1.88rem);
+      --step-3: clamp(1.90rem, 1.40vw + 1.40rem, 2.40rem);
+      --step-4: clamp(2.30rem, 2.20vw + 1.60rem, 3.10rem);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{ box-sizing: border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      background: radial-gradient(1000px 600px at 80% -10%, #141424 0%, transparent 60%), var(--bg);
+      color:var(--ink); line-height:1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a{ color:inherit; text-decoration: none }
+    .wrap{ max-width:var(--maxw); margin-inline:auto; padding: 0 20px }
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter: blur(10px);
+      background:linear-gradient(to bottom, rgba(11,11,16,.8), rgba(11,11,16,.4));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 0 }
+    .brand{ display:flex; gap:12px; align-items:center; font-weight:700; letter-spacing:.2px }
+    .brand .logo{ width:34px; height:34px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow: var(--shadow) }
+    .nav a.btn{ padding:10px 14px; border-radius:12px; background: #ffffff10; border:1px solid #ffffff22 }
+    .nav a.btn:hover{ background:#ffffff18 }
+    .menu{ display:flex; gap:18px; align-items:center }
+    .nav-toggle{ display:none; }
+
+    /* hero */
+    .hero{ padding: 72px 0 40px; position: relative }
+    .hero-grid{ display:grid; gap: 26px; align-items:center }
+    .kicker{ color: var(--brand-2); font-weight:600; letter-spacing:.3px }
+    h1{ font-size: var(--step-4); line-height:1.05; margin: 8px 0 12px }
+    .lead{ font-size: var(--step-1); color: var(--muted); margin: 0 0 24px }
+    .cta{ display:flex; gap:12px; flex-wrap:wrap }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; padding:14px 18px; border-radius:14px; font-weight:600; border:1px solid transparent; cursor:pointer }
+    .btn-primary{ background: linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0b0b10 }
+    .btn-primary:focus{ outline: none; box-shadow: var(--ring) }
+    .btn-ghost{ background:#ffffff10; color:var(--ink); border-color:#ffffff22 }
+    .btn-ghost:hover{ background:#ffffff18 }
+
+    .hero .card{
+      background:linear-gradient(180deg,#141424 0%, #101018 100%);
+      border:1px solid #ffffff10; border-radius: var(--radius); padding:18px; box-shadow: var(--shadow)
+    }
+
+    /* sections */
+    section{ padding: 48px 0 }
+    .section-title{ font-size: var(--step-2); margin:0 0 10px }
+    .section-lead{ color: var(--muted); margin: 0 0 22px }
+
+    /* services */
+    .grid{ display:grid; gap:16px }
+    .card{ background:var(--card); border:1px solid #ffffff12; border-radius:var(--radius); padding:20px; box-shadow: var(--shadow) }
+    .card h3{ margin:0 0 8px; font-size: var(--step-1) }
+    .pill{ display:inline-block; padding:6px 10px; border-radius:100px; background:#ffffff10; border:1px solid #ffffff18; font-size:.85rem }
+
+    /* audio strip */
+    .strip{ display:flex; gap:10px; overflow:auto; padding-bottom:6px }
+    .strip .item{ min-width:220px; background:linear-gradient(180deg,#141424,#0e0e16); border:1px solid #ffffff10; border-radius:14px; padding:12px }
+
+    /* contact */
+    form{ display:grid; gap:12px }
+    .field{ display:grid; gap:8px }
+    label{ font-weight:600; font-size:.95rem }
+    input, textarea{ background:#0f0f17; color:var(--ink); border:1px solid #ffffff22; border-radius:12px; padding:12px 14px; font: inherit }
+    textarea{ min-height:120px; resize:vertical }
+    input:focus, textarea:focus{ outline:none; box-shadow: var(--ring); border-color:#8d7cff }
+    .disclaimer{ color:var(--muted); font-size:.9rem }
+    .success, .error{ display:none; padding:12px 14px; border-radius:12px }
+    .success{ background:#153e2b; border:1px solid #1f6a4a }
+    .error{ background:#412323; border:1px solid #7c3a3a }
+
+    /* footer */
+    footer{ padding: 40px 0 80px; color: var(--muted) }
+
+    /* responsive */
+    @media (min-width: 720px){
+      .hero-grid{ grid-template-columns: 1.1fr .9fr }
+      .grid.cols-3{ grid-template-columns: repeat(3, 1fr) }
+      .grid.cols-2{ grid-template-columns: repeat(2, 1fr) }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Spoiler Studio home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Spoiler Studio</span>
+      </a>
+      <nav class="menu" aria-label="Primaria">
+        <a href="#servizi">Servizi</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contatti" class="btn">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="kicker">Produzione • Mix • Mastering</div>
+          <h1>Suona come ti immagini. <br> Noi ci occupiamo del resto.</h1>
+          <p class="lead">Dallo sketch alla release: trattiamo il tuo brano con cura artigianale, attrezzatura top e orecchie esperte. Prenota una chiamata gratuita e scopri come possiamo aiutarti.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#contatti">Prenota una consulenza</a>
+            <a class="btn btn-ghost" href="#portfolio">Ascolta i lavori</a>
+          </div>
+        </div>
+        <div class="card">
+          <picture>
+            <source srcset="hero@2x.webp 2x, hero.webp 1x" type="image/webp" />
+            <img src="hero.jpg" alt="Console e outboard nello studio" width="540" height="360" style="width:100%; height:auto; border-radius:14px" loading="lazy"/>
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIZI -->
+    <section id="servizi">
+      <div class="wrap">
+        <h2 class="section-title">Cosa facciamo</h2>
+        <p class="section-lead">Servizi su misura per artisti, producer e aziende che vogliono un audio impeccabile.</p>
+        <div class="grid cols-3">
+          <div class="card">
+            <span class="pill">Mix</span>
+            <h3>Mix professionale</h3>
+            <p>Bilanci, profondità e traduzione su ogni impianto. Revisioni incluse fino al risultato desiderato.</p>
+          </div>
+          <div class="card">
+            <span class="pill">Mastering</span>
+            <h3>Master ready-to-release</h3>
+            <p>Loudness, coerenza e dettaglio per streaming, radio e club. Versioni alternate su richiesta.</p>
+          </div>
+          <div class="card">
+            <span class="pill">Produzione</span>
+            <h3>Produzione & Arrangiamento</h3>
+            <p>Dal demo all’idea completa: sound design, strumenti, voci, editing e comping inclusi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO / PLAYER STRIP (placeholder) -->
+    <section id="portfolio">
+      <div class="wrap">
+        <h2 class="section-title">Ascolti recenti</h2>
+        <p class="section-lead">Una selezione di lavori su cui abbiamo messo le mani. Più su richiesta.</p>
+        <div class="strip" aria-label="Estratti audio">
+          <div class="item">
+            <strong>Artist A – Track</strong>
+            <audio controls preload="none" style="width:100%">
+              <source src="track-a.mp3" type="audio/mpeg" />
+              Il tuo browser non supporta l’audio HTML5.
+            </audio>
+          </div>
+          <div class="item">
+            <strong>Artist B – Track</strong>
+            <audio controls preload="none" style="width:100%">
+              <source src="track-b.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+          <div class="item">
+            <strong>Artist C – Track</strong>
+            <audio controls preload="none" style="width:100%">
+              <source src="track-c.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti">
+      <div class="wrap">
+        <h2 class="section-title">Contattaci</h2>
+        <p class="section-lead">Raccontaci il tuo progetto: rispondiamo entro 24 ore.</p>
+
+        <div class="grid cols-2">
+          <form id="contact-form" action="https://formspree.io/f/SEGNAPOSTO" method="POST" novalidate>
+            <div class="success" role="status" aria-live="polite">Grazie! Messaggio inviato ✔️</div>
+            <div class="error" role="alert">Ops, qualcosa non va. Riprova.</div>
+
+            <div class="field">
+              <label for="name">Nome</label>
+              <input id="name" name="name" type="text" required placeholder="Il tuo nome" autocomplete="name" />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="nome@esempio.it" autocomplete="email" />
+            </div>
+
+            <div class="field">
+              <label for="message">Messaggio</label>
+              <textarea id="message" name="message" required placeholder="Scrivi qui…"></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Invia</button>
+            <p class="disclaimer">Inviando accetti la nostra <a href="#">privacy policy</a>.</p>
+          </form>
+
+          <div class="card">
+            <h3>Info & contatti</h3>
+            <p><strong>Email</strong>: <a href="mailto:info@tuodominio.it">info@tuodominio.it</a><br/>
+            <strong>Instagram</strong>: <a href="#">@spoilerstudio</a><br/>
+            <strong>WhatsApp</strong>: <a href="https://wa.me/39XXXXXXXXXX">+39 XXX XXX XXXX</a></p>
+            <p>Riceviamo su appuntamento in studio a Monza. Possibilità di sessioni remote.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <small>© <span id="y"></span> Spoiler Studio — P.IVA 00000000000 — Tutti i diritti riservati</small>
+    </div>
+  </footer>
+
+  <script>
+    // anno footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // form ajax + UX semplice
+    const form = document.getElementById('contact-form');
+    const success = form.querySelector('.success');
+    const error = form.querySelector('.error');
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      success.style.display = 'none';
+      error.style.display = 'none';
+
+      const data = new FormData(form);
+      try{
+        const res = await fetch(form.action, { method:'POST', body:data, headers: { 'Accept':'application/json' }});
+        if(res.ok){
+          form.reset();
+          success.style.display = 'block';
+        } else {
+          error.style.display = 'block';
+        }
+      }catch(err){
+        error.style.display = 'block';
+      }
+    });
+
+    // motion prefer-reduced
+    if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+      document.querySelectorAll('.card, .btn').forEach(el=>{
+        el.style.transition = 'transform .2s ease, background-color .2s ease, border-color .2s ease';
+        el.addEventListener('pointermove', (ev)=>{
+          const r = el.getBoundingClientRect();
+          const x = (ev.clientX - r.left)/r.width - .5;
+          const y = (ev.clientY - r.top)/r.height - .5;
+          el.style.transform = `translateY(${y*2}px)`;
+        });
+        el.addEventListener('pointerleave', ()=>{ el.style.transform = 'translateY(0)' });
+      })
+    }
+  </script>
+</body>
+</html>
